@@ -1,0 +1,112 @@
+### Starting build.
+# Target: kawac.ml.depends, tags: { bin_annot, explain, extension:ml, file:kawac.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules kawac.ml > kawac.ml.depends
+# Target: kawa2pimp.ml.depends, tags: { bin_annot, explain, extension:ml, file:kawa2pimp.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules kawa2pimp.ml > kawa2pimp.ml.depends
+# Target: pimp.ml.depends, tags: { bin_annot, explain, extension:ml, file:pimp.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules pimp.ml > pimp.ml.depends # cached
+# Target: pimp.cmo, tags: { bin_annot, byte, compile, explain, extension:cmo, extension:ml, file:pimp.cmo, file:pimp.ml, implem, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o pimp.cmo pimp.ml # cached
+# Target: kawalexer.mll, tags: { bin_annot, explain, extension:mll, file:kawalexer.mll, lexer, ocaml, ocamllex, quiet, traverse, use_menhir }
+ocamllex.opt -q kawalexer.mll # cached
+# Target: kawalexer.ml.depends, tags: { bin_annot, explain, extension:ml, file:kawalexer.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules kawalexer.ml > kawalexer.ml.depends # cached
+# Target: kawaparser.mly.depends, tags: { bin_annot, explain, extension:mly, file:kawaparser.mly, infer, menhir_ocamldep, ocaml, ocamldep, quiet, traverse, use_menhir }
+menhir --raw-depend --ocamldep 'ocamldep.opt -modules' kawaparser.mly > kawaparser.mly.depends # cached
+# Target: kawa.ml.depends, tags: { bin_annot, explain, extension:ml, file:kawa.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules kawa.ml > kawa.ml.depends # cached
+# Target: kawa.cmo, tags: { bin_annot, byte, compile, explain, extension:cmo, extension:ml, file:kawa.cmo, file:kawa.ml, implem, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o kawa.cmo kawa.ml # cached
+# Target: kawaparser.mly, tags: { bin_annot, byte, compile, explain, extension:ml, extension:mly, file:kawaparser.ml, file:kawaparser.mly, infer, menhir, ocaml, parser, quiet, traverse, use_menhir }
+menhir --ocamlc 'ocamlc.opt -bin-annot' --explain --infer kawaparser.mly # cached
+# Target: kawaparser.mli.depends, tags: { bin_annot, explain, extension:mli, file:kawaparser.mli, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules kawaparser.mli > kawaparser.mli.depends # cached
+# Target: kawaparser.cmi, tags: { bin_annot, byte, compile, explain, extension:mli, file:kawaparser.mli, interf, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o kawaparser.cmi kawaparser.mli # cached
+# Target: kawalexer.cmo, tags: { bin_annot, byte, compile, explain, extension:cmo, extension:ml, file:kawalexer.cmo, file:kawalexer.ml, implem, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o kawalexer.cmo kawalexer.ml # cached
+# Target: pimppp.ml.depends, tags: { bin_annot, explain, extension:ml, file:pimppp.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules pimppp.ml > pimppp.ml.depends # cached
+# Target: pimppp.cmo, tags: { bin_annot, byte, compile, explain, extension:cmo, extension:ml, file:pimppp.cmo, file:pimppp.ml, implem, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o pimppp.cmo pimppp.ml # cached
+# Target: kawa2pimp.cmo, tags: { bin_annot, byte, compile, explain, extension:cmo, extension:ml, file:kawa2pimp.cmo, file:kawa2pimp.ml, implem, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o kawa2pimp.cmo kawa2pimp.ml
++ ocamlc.opt -c -bin-annot -o kawa2pimp.cmo kawa2pimp.ml
+File "kawa2pimp.ml", line 7, characters 6-12:
+7 |   let fields = Hashtbl.create 32 in
+          ^^^^^^
+Warning 26: unused variable fields.
+File "kawa2pimp.ml", line 8, characters 6-13:
+8 |   let methods = Hashtbl.create 32 in
+          ^^^^^^^
+Warning 26: unused variable methods.
+File "kawa2pimp.ml", line 24, characters 6-13:
+24 |   let tr_code code =
+           ^^^^^^^
+Warning 26: unused variable tr_code.
+File "kawa2pimp.ml", line 26, characters 8-17:
+26 |     let new_local =
+             ^^^^^^^^^
+Warning 26: unused variable new_local.
+File "kawa2pimp.ml", line 34, characters 12-19:
+34 |     let rec tr_expr e = failwith "not implemented"
+                 ^^^^^^^
+Warning 26: unused variable tr_expr.
+File "kawa2pimp.ml", line 35, characters 8-16:
+35 |     and tr_instr i = failwith "not implemented"
+             ^^^^^^^^
+Warning 26: unused variable tr_instr.
+File "kawa2pimp.ml", line 51, characters 6-14:
+51 |   let tr_class cdef =
+           ^^^^^^^^
+Warning 26: unused variable tr_class.
+# Target: kawac.cmo, tags: { bin_annot, byte, compile, explain, extension:cmo, extension:ml, file:kawac.cmo, file:kawac.ml, implem, ocaml, quiet, traverse, use_menhir }
+ocamlc.opt -c -bin-annot -o kawac.cmo kawac.ml
+# Target: pimp.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:pimp.cmx, file:pimp.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o pimp.cmx pimp.ml
+# Target: kawaparser.ml.depends, tags: { bin_annot, explain, extension:ml, file:kawaparser.ml, ocaml, ocamldep, quiet, traverse, use_menhir }
+ocamldep.opt -modules kawaparser.ml > kawaparser.ml.depends
+# Target: kawa.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:kawa.cmx, file:kawa.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o kawa.cmx kawa.ml
+# Target: kawaparser.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:kawaparser.cmx, file:kawaparser.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o kawaparser.cmx kawaparser.ml
+# Target: kawa2pimp.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:kawa2pimp.cmx, file:kawa2pimp.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o kawa2pimp.cmx kawa2pimp.ml
++ ocamlopt.opt -c -bin-annot -o kawa2pimp.cmx kawa2pimp.ml
+File "kawa2pimp.ml", line 7, characters 6-12:
+7 |   let fields = Hashtbl.create 32 in
+          ^^^^^^
+Warning 26: unused variable fields.
+File "kawa2pimp.ml", line 8, characters 6-13:
+8 |   let methods = Hashtbl.create 32 in
+          ^^^^^^^
+Warning 26: unused variable methods.
+File "kawa2pimp.ml", line 24, characters 6-13:
+24 |   let tr_code code =
+           ^^^^^^^
+Warning 26: unused variable tr_code.
+File "kawa2pimp.ml", line 26, characters 8-17:
+26 |     let new_local =
+             ^^^^^^^^^
+Warning 26: unused variable new_local.
+File "kawa2pimp.ml", line 34, characters 12-19:
+34 |     let rec tr_expr e = failwith "not implemented"
+                 ^^^^^^^
+Warning 26: unused variable tr_expr.
+File "kawa2pimp.ml", line 35, characters 8-16:
+35 |     and tr_instr i = failwith "not implemented"
+             ^^^^^^^^
+Warning 26: unused variable tr_instr.
+File "kawa2pimp.ml", line 51, characters 6-14:
+51 |   let tr_class cdef =
+           ^^^^^^^^
+Warning 26: unused variable tr_class.
+# Target: kawalexer.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:kawalexer.cmx, file:kawalexer.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o kawalexer.cmx kawalexer.ml
+# Target: pimppp.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:pimppp.cmx, file:pimppp.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o pimppp.cmx pimppp.ml
+# Target: kawac.cmx, tags: { bin_annot, compile, explain, extension:cmx, extension:ml, file:kawac.cmx, file:kawac.ml, implem, native, ocaml, quiet, traverse, use_menhir }
+ocamlopt.opt -c -bin-annot -o kawac.cmx kawac.ml
+# Target: kawac.native, tags: { bin_annot, dont_link_with, explain, extension:native, file:kawac.native, link, native, ocaml, program, quiet, traverse, use_menhir }
+ocamlopt.opt kawa.cmx pimp.cmx kawa2pimp.cmx kawaparser.cmx kawalexer.cmx pimppp.cmx kawac.cmx -o kawac.native
+# Compilation successful.
