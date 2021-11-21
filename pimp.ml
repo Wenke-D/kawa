@@ -29,12 +29,12 @@ and func =
 
 and instruction =
   | Putchar of expression
-  | Set     of string * expression
+  | Set     of string * expression (** Set value to variable represented by string *)
   | If      of expression * sequence * sequence
   | While   of expression * sequence
   | Return  of expression
   | Expr    of expression
-  (* Écriture en mémoire *)
+  (* Écriture en mémoire *e1 = e2 *)
   | Write   of expression * expression
              
 and sequence = instruction list
@@ -64,10 +64,19 @@ type value =
   | FPointer of string
   | Undef
 
+let value_to_str = let spf = Format.sprintf in function
+  | VInt i -> spf "int %d" i
+  | VBool b -> spf "boolean %b" b
+  (* Pointeur sur le tas *)
+  | VPointer p -> spf "value pointor %d" p
+  (* Pointeur de fonction *)
+  | FPointer p -> spf "Function pointor %s" p
+  | Undef -> "undefined"
+
 let vint_or_pointer = function
   | VInt n -> n
   | VPointer p -> p
-  | _ -> assert false
+  | v -> failwith (Format.sprintf "Expected int or value pointor, got %s" (value_to_str v))
 let vbool = function
   | VBool b -> b
   | _ -> assert false
@@ -148,9 +157,12 @@ let exec_prog prog arg =
       | Cst n -> VInt n
       | Bool b -> VBool b
       | Var id -> begin
+          Format.printf "Finding var %s\n" id;
           match Hashtbl.find_opt local_env id with
           | Some v -> v
-          | None -> Hashtbl.find global_env id
+          | None -> (match Hashtbl.find_opt global_env id with
+            |None -> failwith (Format.sprintf "Can't find global variable %s" id)
+            |Some res -> res)
         end
       (* Lecture en mémoire, directement avec la fonction auxiliaire dédiée, en
          supposant que l'argument [e] est un pointeur *)
@@ -192,6 +204,6 @@ let exec_prog prog arg =
       EReturn v -> v
     
   in
-
-  exec_call "main" [arg]
+  (* main no longer accepts arg *)
+  exec_call "main" []
   

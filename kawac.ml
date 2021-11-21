@@ -1,6 +1,5 @@
 (** Programme principale traduisant Kawa vers Pimp *)
 
-
 open Format
 
 let () =

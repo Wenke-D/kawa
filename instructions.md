@@ -65,12 +65,7 @@ L'AST Kawa pour ce fragment est noté en caml :
   Field(Get(Var "p"), "x") (* on le note 'ma' ensuite *)
 ```
 
-Ce fragment désigne une adresse est peut être utilisé aussi bien en lecture
-qu'en écriture, avec `Get` et `Set`. L'AST de l'instruction
-
-``` java
-p.x = 3 * p.x;
-```
+Ce fragment désigne une adresse est peut être utilisé aussi bien en lecture qu'en écriture, avec `Get` et `Set`. L'AST de l'instruction `p.x = 3 * p.x; `
 
 est donc :
 
@@ -159,7 +154,16 @@ Appel complet en PIMP :
 ```
 ou
 ``` ocaml
-  Call(FPointer(Unop(Read, Binop(Add, Cst 8, Unop(Read, Var "p")))), [Var "p"])
+  Call(
+    FPointer(
+      Unop(
+        Read,
+        (* adr of function *)
+        Binop(Add, Cst 8, Unop(Read, Var "p")) 
+      )
+    ), 
+    [Var "p"]
+  )
   // syntaxe abstraite
 ```
 

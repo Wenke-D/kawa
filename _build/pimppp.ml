@@ -1,3 +1,6 @@
+(** Affichage des programmes PIMP *)
+
+
 open Pimp
 open Printf
 
