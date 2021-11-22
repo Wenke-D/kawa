@@ -19,13 +19,13 @@ Il y a un fichier **makefile** se situe au `src` qui contient des procédures ut
 - `make clean` supprimera 
     1. le répertoire **_build** produit par ocamlbuild durant la compilation.
     2. tous les fichier avec extension **.pmp** dans le répertoire test
-    3. les programes binaire **kawac.native kawai.native kawac** et **kawai**
+    3. les programes binaires **kawac.native**, **kawai.native**, **kawac** et **kawai**
 
 
 ## Codes Ocaml Supplémentaires
 ---
 A part des codes fournits au début, le fichier `aux.ml` contients des functions auxiliaires qui est utilisées dans le fichier `kawa2pimp.ml`
 
-le fichier aux_type.ml contient des definition de type utilisé dans les fichiers `kawa2pimp.ml` et `aux.ml`.
+le fichier `aux_type.ml` contient des definition de type utilisé dans les fichiers `kawa2pimp.ml` et `aux.ml`.
 
 Donc non cycle de dépendance
