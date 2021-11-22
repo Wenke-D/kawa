@@ -1,0 +1,22 @@
+
+/* one simple class definition */
+
+class point {
+  attribute int x;
+  attribute int y;
+
+  method void constructor(int a, int b) {
+    this.x = a;
+    this.y = b;
+  }
+
+  method int somme() {
+    return this.x + this.y;
+  }
+}
+
+
+
+main{
+    putchar(1);
+}

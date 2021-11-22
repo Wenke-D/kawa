@@ -1,0 +1,10 @@
+/* affection to simple variable */
+
+
+var int p;
+
+main{
+    p = 65;
+    putchar(p);
+    putchar(10);
+}
