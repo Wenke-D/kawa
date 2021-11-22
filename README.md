@@ -6,12 +6,12 @@ Le fichier `rapport.md` est le rapport de ce projet.
 
 
 ## Tests
-----
+
 Dans le répertoire `src/test`, il y a des codes de kawa pour tester le compilateur, l'objectif de chacun fhichier de test est écrit en commentaire à la première ligne.
 
 
 ## makefile
-----
+
 Il y a un fichier **makefile** se situe au `src` qui contient des procédures utiles.
 
 - `make` produira le compilateur **kawac** et l'intereprèteur **kawai** dans `src`
@@ -23,7 +23,7 @@ Il y a un fichier **makefile** se situe au `src` qui contient des procédures ut
 
 
 ## Codes Ocaml Supplémentaires
----
+
 A part des codes fournits au début, le fichier `aux.ml` contients des functions auxiliaires qui est utilisées dans le fichier `kawa2pimp.ml`
 
 le fichier `aux_type.ml` contient des definition de type utilisé dans les fichiers `kawa2pimp.ml` et `aux.ml`.
