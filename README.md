@@ -1,4 +1,9 @@
 # Structure de projet
+Implémentation de l'OOP mécanisme en manipulant représentation intermédiaire.
+
+projet universitaire pour le cours Compilation
+
+M1 QDCS, Université Paris-Saclay
 
 Dans le répertoire `src`, vous trouverez le code source et les fichiers auxiliaires.
 
