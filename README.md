@@ -1,9 +1,11 @@
-# Structure de projet
-Implémentation de l'OOP mécanisme en manipulant représentation intermédiaire.
+# Kawa
+Implémentation de l'OOP mécanisme en manipulant la représentation intermédiaire.
 
 projet universitaire pour le cours Compilation
 
 M1 QDCS, Université Paris-Saclay
+
+## Structure de projet
 
 Dans le répertoire `src`, vous trouverez le code source et les fichiers auxiliaires.
 
